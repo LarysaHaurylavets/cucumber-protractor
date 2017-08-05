@@ -44,15 +44,16 @@ defineSupportCode(function({Given, When, Then}) {
 
 
   //Then I open page with the phone Iphone SE
-  Then('I open page with {stringInDoubleQuotes}', function (linkPhone) {    
+  Then('I open page with iPhone SE {stringInDoubleQuotes}', function (linkPhone) {    
     var linkPhone=this.browser.element.all(by.css('a[href="https://catalog.onliner.by/mobile/apple/iphonese16sg"]')).first();    
-    this.browser.wait(EC.elementToBeClickable(linkPhone),10000).then(()=>{
+    return this.browser.wait(EC.elementToBeClickable(linkPhone),10000)
+    .then(()=>{
         return linkPhone.click();
       });   
     
   });
 
-  //Then I add phone Iphone SE, 6s for compare
+  //Then I add phone Iphone SE for compare
   Then('I click on checkbox {stringInDoubleQuotes}', function (compare) {
     var compare=this.browser.element.all(by.css('span.catalog-masthead-controls__input')).first();
     this.browser.wait(EC.elementToBeClickable(compare),10000)
@@ -67,23 +68,16 @@ defineSupportCode(function({Given, When, Then}) {
     return this.browser.navigate().back();
   });
 
-  // //Then I open page with the phone Iphone 6s
-  // Then('I open page with the phone Iphone 6s', function () {  
-  //   var elementIphone6s=this.browser.element(by.css('a[href="https://catalog.onliner.by/mobile/apple/iphone6s16gbs"]'));    
+  //Then I open page with the phone Iphone 6s
+  Then('I open page with iPhone 6s {stringInDoubleQuotes}', function (linkPhone) {  
+    var linkPhone=this.browser.element.all(by.css('a[href="https://catalog.onliner.by/mobile/apple/iphone6s16gbs"]')).first();    
+    this.browser.wait(EC.elementToBeClickable(linkPhone),10000)
+    .then(()=>{
+        return linkPhone.click();
+      });       
     
-  //   this.browser.wait(EC.elementToBeClickable(elementIphone6s),10000).then(function(element){
-  //       return elementIphone6s.click();
-  //     });       
-    
-  // });
+  });
 
-
-  // //Then I add phone Iphone 6s for compare
-  // Then('I click on checkbox {stringInDoubleQuotes}', function () {
-  //   return this.browser.element.all(by.css('span.catalog-masthead-controls__input')).then(function (elements){  
-  //       return elements[0].click();
-  //         })
-  // });
 
   //Then I click button for compare two items
   Then('I click button for compare two items', function () {    
